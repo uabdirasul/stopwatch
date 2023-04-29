@@ -48,11 +48,11 @@ body {
 .timer-hours,
 .timer-minutes,
 .timer-seconds {
-  color: rgba(255, 255, 255, 0.35);
+  color: #285da9;
 }
 
 .timer-label {
-  color: rgba(255, 255, 255, 0.35);
+  color: #1870ed;
   text-transform: uppercase;
   font-size: 0.75rem;
   margin-top: 10px;
