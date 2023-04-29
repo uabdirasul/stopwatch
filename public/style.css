@@ -17,6 +17,27 @@ body {
   display: flex;
 }
 
+.timer-container-interval {
+  margin: 10px 0;
+  background-color: #000;
+  border-radius: 5px;
+  padding: 15px 0;
+  color: #1870ed;
+  height: 130px;
+  overflow-y: auto;
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.15),
+    0 15px 90px 30px rgba(0, 0, 0, 0.95);
+}
+
+.timer-container-interval::-webkit-scrollbar {
+  width: 4px;
+}
+
+.timer-container-interval::-webkit-scrollbar-thumb {
+  background-color: #ffff00;
+  border-radius: 8px;
+}
+
 .timer-col {
   text-align: center;
   margin: 0 40px;

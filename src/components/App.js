@@ -9,6 +9,7 @@ class App extends Component {
       second: 0,
       btnDisabled: false,
       interval: "",
+      intervalStorage: [],
     };
   }
 
@@ -50,8 +51,18 @@ class App extends Component {
     });
   };
 
+  intervalClicked = () => {
+    const { intervalStorage, hour, minute, second } = this.state;
+    if ((hour, minute, second)) {
+      intervalStorage.push(`${hour}:${minute}:${second}`);
+      this.setState({
+        intervalStorage,
+      });
+    }
+  };
+
   render() {
-    const { hour, minute, second, btnDisabled } = this.state;
+    const { hour, minute, second, btnDisabled, intervalStorage } = this.state;
 
     return (
       <div>
@@ -92,11 +103,27 @@ class App extends Component {
             </button>
           </div>
           <div className="timer-btn">
-            <button className="btn btn-secondary">Interval</button>
+            <button
+              disabled={!btnDisabled}
+              className="btn btn-secondary"
+              onClick={this.intervalClicked}
+            >
+              Interval
+            </button>
           </div>
           <div className="timer-btn">
             <button className="btn btn-warning">Clear</button>
           </div>
+        </div>
+
+        <div className="timer-container-interval text-center">
+          {intervalStorage.map((item, index) => {
+            return (
+              <p key={index} className="m-2">
+                {index + 1}: {item}
+              </p>
+            );
+          })}
         </div>
       </div>
     );
