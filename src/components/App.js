@@ -8,6 +8,7 @@ class App extends Component {
       minute: 0,
       second: 0,
       btnDisabled: false,
+      interval: "",
     };
   }
 
@@ -15,7 +16,7 @@ class App extends Component {
     this.setState({
       btnDisabled: true,
     });
-    setInterval(() => {
+    let timer = setInterval(() => {
       const { hour, minute, second } = this.state;
 
       if (second === 59) {
@@ -37,6 +38,16 @@ class App extends Component {
         });
       }
     }, 1000);
+    this.setState({
+      interval: timer,
+    });
+  };
+
+  stopClicked = () => {
+    clearInterval(this.state.interval);
+    this.setState({
+      btnDisabled: false,
+    });
   };
 
   render() {
@@ -76,7 +87,9 @@ class App extends Component {
             </button>
           </div>
           <div className="timer-btn">
-            <button className="btn btn-danger">Stop</button>
+            <button className="btn btn-danger" onClick={this.stopClicked}>
+              Stop
+            </button>
           </div>
           <div className="timer-btn">
             <button className="btn btn-secondary">Interval</button>
