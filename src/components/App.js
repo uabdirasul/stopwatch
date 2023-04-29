@@ -61,6 +61,17 @@ class App extends Component {
     }
   };
 
+  clearClicked = () => {
+    const { interval } = this.state;
+    clearInterval(interval);
+    this.setState({
+      intervalStorage: [],
+      hour: 0,
+      minute: 0,
+      second: 0,
+    });
+  };
+
   render() {
     const { hour, minute, second, btnDisabled, intervalStorage } = this.state;
 
@@ -112,7 +123,9 @@ class App extends Component {
             </button>
           </div>
           <div className="timer-btn">
-            <button className="btn btn-warning">Clear</button>
+            <button className="btn btn-warning" onClick={this.clearClicked}>
+              Clear
+            </button>
           </div>
         </div>
 
