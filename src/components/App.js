@@ -69,6 +69,7 @@ class App extends Component {
       hour: 0,
       minute: 0,
       second: 0,
+      btnDisabled: false,
     });
   };
 
