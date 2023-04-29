@@ -45,6 +45,10 @@ body {
   position: relative;
 }
 
+.timer-container h1 {
+  color: #1870ed;
+}
+
 .timer-hours,
 .timer-minutes,
 .timer-seconds {
